@@ -64,8 +64,8 @@ export const getConfiguration = (
     const outputPath = process.env.NUXT_OUTPUT_PATH || options.outputPath
 
     return {
-      src: path.join(laravel.root, moduleKey),
-      dest: path.join(laravel.public, routerBase),
+      src: path.resolve(path.join(laravel.root, moduleKey)),
+      dest: path.resolve(path.join(laravel.public, routerBase)),
       fallback: `${routerBase.length > 1 ? 'spa' : 'index'}.html`,
       additional: outputPath
         ? path.resolve(laravel.root, outputPath)
